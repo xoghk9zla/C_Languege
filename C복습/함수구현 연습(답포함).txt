@@ -1,0 +1,78 @@
+1. 두 숫자를 비교하여 큰수를 반환하는 함수
+
+#include <stdio.h>
+
+int Compare(int, int);
+
+int main()
+{
+	int a, b;
+	printf("두 숫자를 입력하세요.");
+	scanf_s("%d %d", &a, &b);
+
+	printf("%d와 %d중 더 큰 수는 %d입니다.", a, b, Compare(a, b));
+	return 0;
+}
+
+int Compare(int a, int b)
+{
+	return a > b ? a : b;
+}
+
+2. 초를 입력하면  시,분,초 의 형태로 출력해주는 함수
+
+
+#include <stdio.h>
+
+void Time(int);
+
+int main()
+{
+	int t;
+
+	printf("시간을 초 단위로 입력하세요.");
+	scanf_s("%d", &t);
+
+	Time(t);
+
+	return 0;
+}
+
+void Time(int t)
+{
+	int h, m, s;
+	h = t / 3600;
+	m = (t % 3600) / 60;
+	s = (t % 3600) % 60;
+	printf("%d초 -> %d시 %d분 %d초", t, h, m, s);
+}
+
+
+3.2^n을 구하는 재귀 함수를 구현
+
+#include <stdio.h>
+
+int raise(int, int);
+
+int main()
+{
+	int n;
+	int result=2;
+	printf("n번 제곱할 것 인지 입력하세요.");
+	scanf_s("%d", &n);
+
+	printf("2^%d = %d", n, raise(n, result));
+
+	return 0;
+}
+
+int raise(int n, int r)
+{
+	if (n > 1)
+	{
+		r *= 2;
+		return raise(--n, r);
+	}
+	else
+		return r;
+}

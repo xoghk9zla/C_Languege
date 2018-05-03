@@ -1,0 +1,45 @@
+//2014.7.11(금)과제 김태화 알파벳 피라미드
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <Windows.h>
+
+int main(void)
+{
+	int i, j, k = 65;//65는 아스키코드 'A'
+	int arr[26][26];//아스키코드를 담아줄 배열
+	char op;
+	for (i = 0; i<26; i++)
+	{
+		for (j = 0; j<26; j++)
+		{
+			arr[i][j] = k;
+
+			if (k<90)//' A'부터'Z'까지 한줄씩 초기화
+				k++;
+			else
+				k = 65;//'Z'가되면 다시'A'를 초기화하여 다시 A'부터'Z'까지 한줄씩
+		}
+	}
+
+	while (1)
+	{
+		for (i = 0; i<26; i++)
+		{
+			for (j = 0; j <= i; j++)
+			{
+				printf(" %c", arr[i][j]);//%c는 아스키코드 출력을 할 때 사용
+			}
+			printf("\n");
+		}
+		printf("다시 실행 하려면 y, 종료 하려면 n을 입력하세요.");
+		scanf("%ch", &op);
+
+		printf("\n");
+		system("cls");
+		if (op == 'n')
+			break;
+
+	}
+
+	return 0;
+}

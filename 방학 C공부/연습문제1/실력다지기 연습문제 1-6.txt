@@ -1,0 +1,31 @@
+//2014/08/27(수) 실력다지기 연습문제1-6
+//윤년 판단 함수
+#include<stdio.h>
+
+int Year(int year);
+
+int main(void)
+{
+	int year;
+	int count=0;
+
+	while(count!=3)
+	{
+		scanf("%d", &year);
+	if(Year(year)==1)
+		printf("%d년은 윤년 입니다.\n", year);
+	else
+		printf("%d년은 윤년이 아닙니다.\n", year);
+	count++;
+	}
+	
+	return 0;
+}
+
+int Year(int year)
+{
+	if(year%4==0 && year%100!=0 || year%400==0)
+		return 1;
+	else
+		return 0;
+}

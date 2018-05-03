@@ -1,0 +1,66 @@
+//2014.6.25(수)과제 김태화 for문, while문,do while문을 비교하는 프로그램
+#include <stdio.h>
+//for문:for(초기식;조건식;증감식){반복영역} 원하는 만큼 반복 시킬때 편리
+//while문:while(반복조건){반복영역}조건을 먼저 확인 조건이 참이면 실행
+//do while문:do{반복영역}while(반복조건)조건을 마지막에 확인 특정 조건이 거짓일떄만 종료하도록 할때 편리
+//while문은 처음부터거짓이면 실행을 아예안하지만,do while은 한번 실행 후 종료
+
+int main(void)
+{
+	int len=0;
+	char arr[6]="study";
+
+	 for(len=0;arr[len]!='\0'; len++);
+		 printf("%s의 길이는 %d \n", arr,len);
+	 printf("\n");
+
+	 while(arr[len]!='\0')//널문자(\0)가 아니면 실행
+	 {
+		 len++;
+	 }
+	 printf("%s의 길이는 %d \n\n", arr,len);
+
+	 len=0;
+	 do
+	 {
+		 len++;
+	 }while(arr[len]!='\0');//널문자(\0)가 아니면 실행
+	 printf("%s의 길이는 %d \n", arr,len);
+
+
+	 return 0;
+}
+
+
+
+/*
+
+int main(void)
+{
+	int len=0;
+	char arr[6]="study";
+
+	 while(arr[len]!='\0')//널문자(\0)가 아니면 실행
+	 {
+		 len++;
+	 }
+	 printf("%s의 길이는 %d \n\n", arr,len);
+
+	 for(len=0;arr[len]!='\0'; len++);
+		 printf("%s의 길이는 %d \n", arr,len);
+	 printf("\n");
+
+	 len=0;
+	 do
+	 {
+		 len++;
+	 }while(arr[len]!='\0');//널문자(\0)가 아니면 실행
+	 printf("%s의 길이는 %d \n", arr,len);
+
+
+	 return 0;
+}
+
+*/
+굳이 0으로 2번 초기화 시켜줄 필요없고 while문에서 len이 그대로 실행되기에 수정함
+

@@ -1,0 +1,30 @@
+//2014/08/27(수) 실력다지기 연습문제1-2
+//기가 -> 메가, 기가 -> 킬로 변환 함수
+#include<stdio.h>
+
+int GigatoMega(int num);
+int GigatoKilo(int num);
+int Multi1024(int num);
+
+int main(void)
+{
+	printf("%d Giga -> %d Mega\n", 12, GigatoMega(12));
+	printf("%d Giga -> %d Kilo\n", 12, GigatoKilo(12));
+
+	return 0;
+}
+
+int GigatoMega(int num)
+{
+	return Multi1024(num);
+}
+
+int GigatoKilo(int num)
+{
+	return GigatoMega(Multi1024(num));
+}
+
+int Multi1024(int num)
+{
+	return num*1024;
+}

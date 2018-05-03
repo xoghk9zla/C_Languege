@@ -1,0 +1,39 @@
+#include <stdio.h>
+struct charcter{
+	char name[10];
+	int hp,speed,dp;
+};
+
+void scan(struct charcter *pst, int n);
+void print(struct charcter *pst, int n);
+
+int main(void)
+{
+	struct charcter ch[5];
+
+	scan(ch,5);
+	print(ch,5);
+
+	return 0;
+}
+
+void scan(struct charcter *pst, int n)
+{
+	int i;
+	printf("이름 : 체력 , 이동속도 , 방어력 을 입력하세요. \n");
+	for(i=0;i<n;i++)
+	{
+		scanf("%s %d %d %d", pst[i].name, &pst[i].hp, &pst[i].speed, &pst[i].dp);
+	}
+	printf("\n");
+}
+void print(struct charcter *pst, int n)
+{
+	int i;
+	printf("이름 : 체력 , 이동속도 , 방어력 \n\n");
+	for(i=0;i<n;i++)
+	{
+		printf("%s : %d , %d , %d \n", pst[i].name, pst[i].hp, pst[i].speed, pst[i].dp);
+	}
+}
+

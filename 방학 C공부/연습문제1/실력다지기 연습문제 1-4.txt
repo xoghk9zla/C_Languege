@@ -1,0 +1,17 @@
+//2014/08/27(수) 실력다지기 연습문제1-4
+//화씨 -> 섭씨 변환 함수
+#include<stdio.h>
+
+double FahtoCen(double fah);
+
+int main(void)
+{
+	printf("%f F -> %f C", 124.5, FahtoCen(124.5));
+
+	return 0;
+}
+
+double FahtoCen(double fah)
+{
+	return (fah-32)*5/9;
+}

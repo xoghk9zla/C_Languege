@@ -1,0 +1,253 @@
+1. 양의 정수를 입력받아 그 배수를 출력하도록 (while문을 사용,100이하의 수까지)
+
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+int main()
+{
+	int num;
+	int mul=1;
+	scanf("%d", &num);
+	while (num*mul <= 100)
+	{
+		printf("%d \t", num*mul);
+		++mul;
+	}
+	return 0;
+}
+2.구구단!!(역순으로도!)
+
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+int main()
+{
+	int i, j;
+	for (j = 1; j < 10; ++j)
+	{
+		for (i = 2; i < 10; ++i)
+			printf("%dx%d = %d ", i, j, i*j);
+		printf("\n");
+	}
+	return 0;
+}
+
+#include <stdio.h>
+
+int main()
+{
+	int i, j;
+	for (j = 9; j > 0 ; --j)
+	{
+		for (i = 2; i < 10; ++i)
+			printf("%dx%d = %d ", i, j, i*j);
+		printf("\n");
+	}
+	return 0;
+}
+3.팩토리얼(n!) 함수 구현
+//재귀함수
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+int fac(int n);
+
+int main()
+{
+	int num;
+	scanf("%d", &num);
+	printf("%d!=%d \n", num, fac(num));
+	return 0;
+}
+
+int fac(int n)
+{
+	if (n != 1)
+		return n*fac(n - 1);
+	else
+		return 1;
+}
+
+//for문 사용
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+
+int fac(int n);
+
+int main()
+{
+	
+	int num;
+	scanf("%d", &num);
+	printf("%d!=%d \n", num, fac(num));
+
+	return 0;
+}
+
+int fac(int n)
+{
+	int result=1;
+	int i;
+	for (i = 1; i <= n; ++i)
+		result *= i;
+
+	return result;
+}
+
+4.for문 중첩해서 도형만들기(직각삼각형,정사각형,정사각형에 대각선추가) 
+
+#include <stdio.h>
+
+int main()
+{
+	int i, j;
+	char arr[8][8];	// 배열사용 직각삼각형
+	for (i = 0; i < 8; ++i)
+	{
+		for (j = 0; j < 8; ++j)
+		{
+			if (i == 7 || j == 0 || i == j)
+				arr[i][j] = '*';
+			else
+				arr[i][j] = NULL;
+		}
+	}
+	for (i = 0; i < 8; ++i)
+	{
+		for (j = 0; j < 8; ++j)
+		{
+			printf("%c", arr[i][j]);
+		}
+		printf("\n");
+	}
+	
+	return 0;
+}
+
+#include <stdio.h>
+// 배열 없이 직각삼각형
+int main()
+{
+	int i, j;
+	for (i = 0; i < 8; ++i)
+	{
+		for (j = 0; j <= i; ++j)
+		{
+			if (i == 7 || j == 0 || i == j)
+				printf("*");
+			else
+				printf(" ");
+		}
+		printf("\n");
+	}
+	
+	
+	return 0;
+}
+
+#include <stdio.h>
+// 배열 없이 정사각형
+int main()
+{
+	int i, j;
+	for (i = 0; i < 8; ++i)
+	{
+		for (j = 0; j < 8; ++j)
+		{
+			if (i == 7 || j == 0 || i==0 || j==7 )
+				printf("*");
+			else
+				printf(" ");
+		}
+		printf("\n");
+	}
+	
+	
+	return 0;
+}
+
+#include <stdio.h>
+// 배열 없이 정사각형 대각선추가1
+int main()
+{
+	int i, j;
+	for (i = 0; i < 8; ++i)
+	{
+		for (j = 0; j < 8; ++j)
+		{
+			if (i == 7 || j == 0 || i==0 || j==7 || i == j)
+				printf("*");
+			else
+				printf(" ");
+		}
+		printf("\n");
+	}
+	
+	
+	return 0;
+}
+
+#include <stdio.h>
+// 배열 없이 대각선추가2
+int main()
+{
+	int i, j;
+	for (i = 0; i < 8; ++i)
+	{
+		for (j = 0; j < 8; ++j)
+		{
+			if (i == 7 || j == 0 || i==0 || j==7 || i+j==7)
+				printf("*");
+			else
+				printf(" ");
+		}
+		printf("\n");
+	}
+	
+	
+	return 0;
+}
+
+#include <stdio.h>
+// 배열 없이 정사각형에 x 추가
+int main()
+{
+	int i, j;
+	for (i = 0; i < 8; ++i)
+	{
+		for (j = 0; j < 8; ++j)
+		{
+			if (i == 7 || j == 0 || i==0 || j==7 || i == j || i+j==7)
+				printf("*");
+			else
+				printf(" ");
+		}
+		printf("\n");
+	}
+	
+	
+	return 0;
+}
+
+#include <stdio.h>
+// 헤헤
+int main()
+{
+	int i, j;
+	for (j = 0; j < 8; ++j)
+	{
+		for (i = 0; i < 10; ++i)
+		{
+			if (i == 1 && j == 3 || i == 2 && (j == 2 || j == 4) || i == 3 && (j == 1 || j == 5) || i == 4 && (j == 2 || j == 6) || i == 5 && (j == 3 || j == 7) || i == 6 && (j == 2 || j == 6) || i == 7 && (j == 1 || j == 5) || i == 8 && (j == 2 || j == 4) || i == 9 && (j == 3))
+				printf("♡");
+			else
+				printf("  ");
+		}
+		printf("\n");
+	}
+	
+	printf("수고했어!!♡\n"); 
+	
+	return 0;
+}

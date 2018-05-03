@@ -1,0 +1,18 @@
+//2014/08/27(수) 실력다지기 연습문제1-5
+//초 정보를 시:분:초 정보 변환 출력 함수
+#include<stdio.h>
+
+void SectoHMS(int sec);
+
+int main(void)
+{
+	SectoHMS(3245);
+	SectoHMS(5109);
+
+	return 0;
+}
+
+void SectoHMS(int sec)
+{
+	printf(" %d H : %d M : %d S \n", sec/3600, (sec%3600)/60, (sec%3600)%60);
+}

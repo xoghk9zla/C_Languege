@@ -1,0 +1,48 @@
+#include <stdio.h>
+
+int main()
+{
+	int n;
+	int a,b;
+	a=3;
+	b=4;
+	printf("덧샘 1 뺄샘 2 곱샘 3,4");
+	scanf("%d", &n);
+
+	printf("if 문 출력\n");
+	if(n==1)
+		printf("%d\n", a+b);
+	else if(n==2)
+		printf("%d\n", a-b);
+	else if(n==3 || n==4)
+		printf("%d\n", a*b);
+	else
+		printf("default \n");
+
+	printf("switch문 출력\n");
+	switch(n)
+	{
+		case 1:
+			printf("%d\n", a+b);
+
+		case 2:
+			printf("%d\n", a-b);			// case 1이 실행되면 break; 가 없으므로 아레의 분기들도 실행된다
+
+		case 3: case 4:					// 주석 2째 줄 참조
+			printf("%d\n", a*b);break;
+
+		default:
+			printf("default \n");
+	}
+}
+
+/*위의 예제를 실행시키면 알 수 있듯이
+
+if문과의 가장 큰 차이는 switch 문은 break;를 쓰지 않는다면 조건이 만족된 분기 아래의 모든 분기가 참이 되어 실행이 된다.
+
+이를 이용하여 if문의 조건문이 복잡할때 switch문의 마지막까지 실행된다는 특성을 활용하여 case로 간단히 나타낼 수 있다.
+
+if문은 조건문을 다양하게 사용할 수 있는 반면 switch문에는 비교 연산이 올 수 없고 비교적 간단한 조건(정수)만이 올 수 있다.
+
+분기가 많을시 대부분의 프로그래머들은 case문을 깔끔하다고 생각한다.
+*/

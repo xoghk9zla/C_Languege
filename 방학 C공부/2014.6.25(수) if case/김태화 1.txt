@@ -1,0 +1,75 @@
+//2014.6.25(수)과제 김태화 if문과 switch문의 사용법, 장단점
+#include <stdio.h>
+//if장단점: 조건의 지정범위가 조금더 자유로움. 조건이 많을수록 더러워 질수 있음.
+//switch 장단점: case에 상수가아닌 수가 들어갈수가 없다. 분기가 너무 많을때 사용하면 깔끔하게 사용 가능. 조건이 너무 많을때
+
+int PM(int n1, int n2);//덧셈 또는 뺄셈을 위한 함수
+double MD(int n1, int n2);//곱셈 또는 나눗셈을 위한 함수
+
+int main(void)
+{
+	int num1, num2;//연산에 사용할 숫자
+	int op,result;//옵션을 정할 변수, 결과를 저장할 변수
+
+	printf("1.덧셈 또는 뺄셈, 2.곱셈 또는 나눗셈.");
+	scanf("%d", &op);
+
+	switch(op)//괄호안에 자신이 사용할 값을 넣어 그것을 상황별로 나누어서 사용
+	{
+	case 1:
+		printf("두 수를 입력하세요");
+		scanf("%d %d", &num1, &num2);
+		result=PM(num1,num2);
+		printf("결과는 %d입니다. \n", result);
+		break;
+
+	case 2:
+		printf("두 수를 입력하세요");
+		scanf("%d %d", &num1, &num2);
+		result=MD(num1,num2);
+		printf("결과는 %.2f입니다. \n", result);
+		break;
+
+	default:
+		printf("0~2사이의 수를 입력하세요. 프로그램을 종료합니다.");
+	}
+	return 0;
+}
+
+int PM(int n1, int n2)
+{
+	int sel;
+	int p=n1+n2,m=n1-n2;
+
+	printf("1번. 덧셈, 2번. 뺄셈 : ");
+	scanf("%d", &sel);
+
+	if(sel==1)//조건이 성립하게되면 그 안의 문장을 실행시키고 그렇지않으면 실행하지않음
+		return p;
+	else if(sel==2)
+		return m;
+	else
+		printf("1 또는 2를 입력해주세요. \n");
+		PM(n1,n2);
+}
+
+double MD(int n1, int n2)
+{
+	int sel;
+	double m=n1*n2,d=n1/n2;
+
+	printf("1번. 곱셈, 2번. 나눗셈 : ");
+	scanf("%d", &sel);
+	switch(sel)//괄호안에 자신이 사용할 값을 넣어 그것을 상황별로 나누어서 사용
+	{
+	case 1:
+		return m;
+		break;
+	case 2:
+		return d;
+		break;
+	default:
+		printf("1 또는 2를 입력해주세요. \n");
+		MD(n1,n2);
+	}
+}

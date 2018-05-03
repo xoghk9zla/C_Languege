@@ -1,0 +1,91 @@
+1. 사칙연산을 하는 프로그램작성(main 안에서, if문을 사용)
+
+#include <stdio.h>
+
+int main()
+{
+	int a, b;
+	int op;
+	printf("두 숫자를 입력하세요.");
+	scanf_s("%d %d", &a, &b);
+	printf("1. 덧셈 2. 뺄셈 3. 곱셈 4. 나눗셈");
+	scanf_s("%d", &op);
+		if (op == 1)
+			printf("%d + %d = %d\n", a, b, a + b);
+		else if (op == 2)
+			printf("%d - %d = %d\n", a, b, a - b);
+		else if (op == 3)
+			printf("%d x %d = %d\n", a, b, a * b);
+		else if (op == 4)
+			printf("%d / %d = %d\n", a, b, a / b);
+		else
+			printf("잘못 입력하셨습니다.\n");
+	return 0;
+}
+
+2. 두 수의 배수출력(100이하의 자연수)
+
+#include <stdio.h>
+
+int main()
+{
+	int a, b;
+	int i;
+	printf("두 숫자를 입력하세요.");
+	scanf_s("%d %d", &a, &b);
+
+	for (i = 1; i < 100; ++i){
+		if (i%a == 0 && i%b == 0)
+			printf("%d  ", i);
+	}
+	return 0;
+}
+
+3. 두 차를 출력하는 프로그램(삼항연산자/ ex.16-5=11,5-16=11)
+
+#include <stdio.h>
+
+int main()
+{
+	int a, b;
+	int temp;
+	printf("두 숫자를 입력하세요.");
+	scanf_s("%d %d", &a, &b);
+
+	printf("%d - %d = %d", a > b ? a : b, a > b ? b : a, a - b > 0 ? a - b : b - a);
+	return 0;
+}
+
+4. 1번을 switch문으로 수정
+
+#include <stdio.h>
+
+int main()
+{
+	int a, b;
+	int op;
+	printf("두 숫자를 입력하세요.");
+	scanf_s("%d %d", &a, &b);
+	printf("1. 덧셈 2. 뺄셈 3. 곱셈 4. 나눗셈");
+	scanf_s("%d", &op);
+	switch (op)
+	{
+	case 1:
+		printf("%d + %d = %d\n", a, b, a + b);
+		break;
+	case 2:
+		printf("%d - %d = %d\n", a, b, a - b);
+		break;
+	case 3:
+		printf("%d x %d = %d\n", a, b, a * b);
+		break;
+	case 4:
+		printf("%d / %d = %d\n", a, b, a / b);
+		break;
+	default:
+		printf("잘못 입력하셨습니다.\n");
+		break;
+	}
+
+	return 0;
+}

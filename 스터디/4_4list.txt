@@ -1,0 +1,280 @@
+#include<stdio.h>
+#include<malloc.h>
+#include<string.h>
+#include<conio.h>
+#include<stdlib.h>
+
+struct stardic
+{
+ char name[20];
+ int att;
+ int arm;
+ int HP;
+ int search;
+ 
+};
+typedef struct stardic STAR;
+
+STAR Star[20]={{"마린", 5, 1, 50, 1},{"파이어벳",7,2,60,1},{"메딕",0,2,70,1},{"질럿",10, 5, 100, 1}} ;
+
+typedef struct ArrStardic
+{
+	char name[20];
+	 int att;
+	 int arm;
+	 int HP;
+
+	 struct ArrStardic *next;
+
+}ArrStar;
+
+//단일 링크드 리스트 생성
+ArrStar* init(char *name,int att, int arm, int hp, ArrStar *pArrStar)
+{
+	
+
+	
+	
+	if(pArrStar==NULL)
+	 {
+		 pArrStar=(ArrStar*)malloc(sizeof(ArrStar));
+		 if(pArrStar==NULL)
+		 {
+			exit(0);
+		}
+		 pArrStar->arm = arm;
+		pArrStar->att = att;
+		pArrStar->HP = hp;
+		strcpy(pArrStar->name, name);
+		pArrStar->next = NULL;
+
+	}
+	else
+	{
+		pArrStar->next = init(name, att, arm, hp, pArrStar->next);	
+		
+	}
+		
+	
+		return (pArrStar);
+	
+}
+
+void Search_R(char *pName, STAR *pStar)
+{
+	int str;
+	
+	str=strcmp(pStar->name, pName);
+	if(str==0)
+	{
+		system("cls");
+		printf("케릭터 이름 : %s\n", pStar->name);
+		printf("케릭터 공격력 : %d\n", pStar->att);
+		printf("케릭터 방어력 : %d\n", pStar->arm);
+		printf("케릭터 체력 : %d\n", pStar->HP);
+	}
+}
+
+void Insert_R(STAR *pStar)
+{
+	char tmpName[20];
+	int tmpAtt;
+	int tmpArm;
+	int tmpHP;
+	
+	printf("입력할 케릭터 이름 : \n");
+	scanf("%s", &tmpName);
+	strcpy(pStar->name, tmpName);
+	printf("입력한 케릭터의 공격력 : \n");
+	scanf("%d", &tmpAtt);
+	pStar->att = tmpAtt;
+	printf("입력한 케릭터의 방어력 : \n");
+	scanf("%d", &tmpArm);
+	pStar->arm = tmpArm;
+	printf("입력한 케릭터의 체력 : \n");
+	scanf("%d", &tmpHP);
+	pStar->HP = tmpHP;
+	pStar->search=1;
+}
+
+int Delete_R(char *pName, STAR *pStar)
+{
+	int str;
+	str=strcmp(pStar->name, pName);
+	if(str==0)
+	{
+		pStar->search=0;
+		return 1;		
+	}
+	return 0;
+}
+
+void Printall_R(int total)
+{
+	
+	for(int n=0; n<total; n++)
+	{
+		if(Star[n].search==1)
+		{
+			printf("이름 : %s\n",Star[n].name);
+			printf("공격력 : %d\n",Star[n].att);
+			printf("방어력 : %d\n",Star[n].arm);
+			printf("체력 : %d\n",Star[n].HP);
+		}
+		else
+			break;
+	}
+}
+
+void prtList(ArrStar *p)
+{
+	ArrStar *temp;
+	temp=p;
+	while(temp->next !=NULL)
+	{
+		printf("이름 : %s\n", temp->name);
+		printf("공격력 : %d\n", temp->att);
+		printf("방어력 : %d\n", temp->arm);
+		printf("체력 : %d\n", temp->HP);
+		temp = temp->next;
+	}
+	
+		printf("이름 : %s\n", temp->name);
+		printf("공격력 : %d\n", temp->att);
+		printf("방어력 : %d\n", temp->arm);
+		printf("체력 : %d\n", temp->HP);
+
+
+}
+
+int FindMaxHealth_R(STAR *pStar, int max)
+{
+	int tmpMax=max;
+	if(tmpMax<pStar->HP)
+	{
+		tmpMax=pStar->HP;
+	}
+	return tmpMax;
+}
+
+void main()
+{
+ 
+  
+ //모든 유닛의 정보를 출력
+	int total = 10;
+ 
+ int n, input;
+ int max=0;
+ char iname[20] = {NULL};
+ int iatt, iarm, iHP;
+
+ ArrStar *LinkStar;
+ 
+ //head = init(Star[0].name, Star[0].att, Star[0].arm, Star[0].HP, LinkStar);
+
+ for(n=0; Star[n].search!=1; n++)
+ {
+	 LinkStar = init(Star[n].name, Star[n].att, Star[n].arm, Star[n].HP, LinkStar);
+
+	 
+
+ }
+
+
+
+ //링크드 리스트에 배열 데이터 초기화
+ 
+
+ while(1)
+ {
+  printf("-----------------------------------------------\n");
+  printf("1) 검색 \n2) 입력\n3) 삭제\n4) print all\n5) 체력이 강한 유닛찾기\n0) 종료\n");
+  scanf("%d",&input);
+
+  switch(input)
+  {
+  case 1:
+	  
+   printf("-----------------------------------\n");
+   printf("검색하실 캐릭터 이름을 입력하시오 : ");
+   scanf("%s",&iname);
+   system("cls");
+   for(n=0; Star[n].search!= NULL; n++)
+   {
+    if(Star[n].search == 1)
+    {
+		Search_R(iname,&Star[n]);
+
+    }
+   }
+   
+	break;
+   
+  case 2:
+	   for(n=0; n<total; n++)
+   {
+    if(Star[n].search == 0)
+    {
+     
+	 Insert_R(&Star[n]);
+	 break;
+    }
+   }
+   
+   break;
+   
+  case 3:
+	   printf("삭제하실 캐릭터 이름을 입력하시오 :");
+   scanf("%s",&iname);
+   for(n=0; n<total; n++)
+   {
+	   if(Star[n].search==1)
+	   {
+		   int iStop=0;
+		   
+		   iStop=Delete_R(iname, &Star[n]);
+		   if(iStop=1)
+			   break;
+	   }
+   }
+	getch();
+	system("cls");
+	break;
+   
+   break;
+  case 4:
+	   system("cls");
+   printf("모든 캐릭터 정보를 출력합니다.\n");
+   //Printall_R(total);
+   prtList(LinkStar);
+   
+   break;
+  case 5:
+	   for(n=0; n<total; n++)
+   {
+    
+	max=FindMaxHealth_R(&Star[n], max);
+   }
+   for(n=0;n<total;n++)
+   {
+	   if(Star[n].HP==max)
+	   {
+		   printf("체력 젤 좋은 케릭은 : %s\n", Star[n].name);
+		   printf("체력 : %d\n", Star[n].HP);
+		   printf("공격력 : %d\n", Star[n].att);
+		   printf("방어력 : %d\n", Star[n].arm);
+	   }
+   }
+   getch();
+   system("cls");
+ 
+   break;     
+  
+  case 0:
+   printf("프로그램을 종료합니다.\n");
+   return;
+   break;
+  }
+ }
+}

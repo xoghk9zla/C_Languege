@@ -1,0 +1,47 @@
+#include <stdio.h>//아 귀찮아
+#include <time.h>
+#include <stdlib.h>
+
+/*int main()//이게 아마도 그 이프문 스위치문
+{
+	int score,score2;
+	char grade,grade2;
+
+	srand((unsigned)time(NULL));
+	score = rand()%101;
+
+	//if문의 사용법
+	//if(조건식)
+	//	실행할 문장;
+	
+
+	if(score == 0) // if문은 조건이 참이면 그 문장을 실행하고 아니면 실행하지 않는다. 
+		grade = 'F';
+	else if(score < 30)
+		grade = 'D';
+	else if(score < 50)
+		grade = 'C';
+	else if(score < 80)
+		grade = 'B';
+	else 
+		grade = 'A';
+
+	score2 = score/10;//
+
+	//switch문의 사용법
+	//switch(판단할변수){
+	//	case 비교할값:
+	//		실행할 문장;
+	//		break;//위 문장을 실행시킨후 스위치문을 종료한다
+	
+	switch(score2){
+		case 10: case 9: case 8: grade2 = 'A'; break;
+		case 7: case 6: case 5: grade2 = 'B'; break;
+		case 4: case 3: grade2 = 'C'; break;
+		case 2: case 1: grade2 = 'D'; break;
+		case 0: grade2 = 'F'; break;
+	}//스위치문은 어떤 변수의 값이 case와 같다면 그 문장을 실행한다. if문은 조건식이지만 스위치문은 변수가 어떤 값과 같은지만 판단한다.
+
+	printf("if문 : 학생의 점수는 %d이고 등급은 %c입니다\n",score,grade);
+	printf("switch문 : 학생의 점수는 %d이고 등급은 %c입니다\n",score,grade2);
+}*/

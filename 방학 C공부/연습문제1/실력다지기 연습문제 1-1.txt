@@ -1,0 +1,28 @@
+//2014/08/27(수) 실력다지기 연습문제1-1
+//inch -> cm, cm -> inch 변환 함수
+#include<stdio.h>
+
+double InchtoCm(double inch);
+double CmtoInch(double cm);
+
+int main(void)
+{
+	printf("%f inch -> %f cm \n\n", 3.24, InchtoCm(3.24));
+	printf("%f cm -> %f inch \n\n", 12.7, CmtoInch(12.7));
+
+	return 0;
+}
+
+double InchtoCm(double inch)
+{
+	double cm;
+	
+	return inch*2.54;
+}
+
+double CmtoInch(double cm)
+{
+	double inch;
+	
+	return cm/2.54;
+}

@@ -1,0 +1,57 @@
+
+
+2.
+
+1)#include <stdio.h>
+
+int main()
+{
+	int i, n;
+
+	printf("숫자 ㅇ비략 : ");
+	scanf("%d", &n);
+
+	for(i=1;i<10;i++) //i의 값이 9가 될 때 까지만 입력됨
+	{
+		printf("%d x %d = %d \n", n, i, n*i);
+	}
+}
+
+2)#include <stdio.h>
+
+int main()
+{
+	int i=1, n;
+
+	printf("숫자 ㅇ비략 : ");
+	scanf("%d", &n);
+
+	while(i<10) //위 지문의 for문과 비슷한 역할(for문의 가운데의 조건문과 같음)
+	{
+		printf("%d x %d = %d \n", n, i, n*i);
+		i++; //i가 조건을 벗어날 떄 까지 증가(for문의 마지막 증감문과 같음)
+	}
+}
+
+3)#include <stdio.h>
+
+int main()
+{
+	int i=1, n;
+
+	printf("숫자 ㅇ비략 : ");
+	scanf("%d", &n);
+
+	do
+	{
+		printf("%d x %d = %d \n", n, i, n*i);
+		i++;
+	}while(i<10); //do while문에서는 while문과 다르게 조건이 뒤로 감
+}
+
+
+
+
+for문은 while문을 보기 편하게 만든(?). 초기식, 조건식, 증감식, 내용 순으로 내용이 끝나면 조건식, 초기식, 내용을 조건이 맞을때까지 반복
+while문은 조건을 먼저 확인, 그리고 안의 내용을 조건을 벗어날 때까지 실행 반복
+do while문은 내용이 먼저 실행, 실행 후 조건 확인
